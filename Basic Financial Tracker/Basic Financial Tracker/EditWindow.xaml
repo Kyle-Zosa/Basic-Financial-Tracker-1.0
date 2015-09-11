@@ -1,0 +1,105 @@
+﻿<Window x:Name="editWindow"
+        x:Class="Basic_Financial_Tracker.EditWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Basic_Financial_Tracker"
+        mc:Ignorable="d"
+        Title="Edit Transaction ID " Height="370" Width="560" ResizeMode="NoResize" Icon="GoldenCoin.ico">
+    <Grid Margin="10">
+        <GroupBox x:Name="editTransactionGroupBox" Header="Transaction ">
+            <Grid x:Name="editTransactionMainGrid" Margin="5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1.5*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="1.25*"/>
+                    <RowDefinition Height="35"/>
+                </Grid.RowDefinitions>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="1.2*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0" Margin="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="1.3*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0" x:Name="edit_TransactionID" Content="Transaction ID:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                            <Label Grid.Row="1" x:Name="edit_Category" Content="Category:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                            <Label Grid.Row="2" x:Name="edit_Amount" Content="Amount:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                        </Grid>
+                        <Grid Grid.Column="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <TextBox Grid.Row="0" x:Name="edit_TransactionIDTextBox" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" IsReadOnly="True" IsEnabled="False"/>
+                            <TextBox Grid.Row="1" x:Name="edit_CategoryTextBox" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="Commute" VerticalAlignment="Top"/>
+                            <TextBox Grid.Row="2" x:Name="edit_AmountTextBox" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="-100.00" VerticalAlignment="Top" KeyDown="edit_AmountTextBox_KeyDown" PreviewTextInput="edit_AmountTextBox_PreviewTextInput" LostFocus="edit_AmountTextBox_LostFocus"/>
+                        </Grid>
+                    </Grid>
+                    <Grid Grid.Column="1" Margin="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="1.6*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0" x:Name="edit_TransactionType" Content="Transaction Type:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                            <Label Grid.Row="1" x:Name="edit_DateAdded" Content="Date Added:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                            <Label Grid.Row="2" x:Name="edit_DateModified" Content="Date Modified:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                        </Grid>
+                        <Grid Grid.Column="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <TextBox Grid.Row="0" x:Name="edit_TransactionTypeTextBox" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="Expense" VerticalAlignment="Top" IsReadOnly="True" IsEnabled="False"/>
+                            <DatePicker Grid.Row="1" x:Name="edit_DateAddedDatePicker" HorizontalAlignment="Stretch" VerticalAlignment="Top" IsEnabled="false"/>
+                            <DatePicker Grid.Row="2" x:Name="edit_DateModifiedDatePicker" HorizontalAlignment="Stretch" SelectedDate="09/20/2015" VerticalAlignment="Top" IsEnabled="False"/>
+                        </Grid>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="1" Margin="5,5,5,10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1.25*"/>
+                        <ColumnDefinition Width="4*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" x:Name="edit_Description" Content="Description:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <TextBox Grid.Column="1" x:Name="edit_DescriptionTextBox" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="This is the Description" VerticalAlignment="Stretch"/>
+                </Grid>
+                <Grid Grid.Row="2" Margin="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1.25*"/>
+                        <ColumnDefinition Width="4*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" x:Name="edit_ReasonForChange" Content="Reason for Change:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <TextBox Grid.Column="1" x:Name="edit_ReasonForChangeTextBox" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="Reason for Change" VerticalAlignment="Stretch" GotFocus="edit_ReasonForChangeTextBox_GotFocus" LostFocus="edit_ReasonForChangeTextBox_LostFocus"/>
+                </Grid>
+                <Grid Grid.Row="3" Margin="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Column="1" x:Name="saveButton" Content="Save" HorizontalAlignment="Left" VerticalAlignment="Center" Width="110" Margin="46,2,0,1" Click="saveButton_Click"/>
+                    <Button Grid.Column="2" x:Name="cancelButton" Content="Cancel" HorizontalAlignment="Right" VerticalAlignment="Center" Width="110" Click="cancelButton_Click"/>
+                </Grid>
+            </Grid>
+        </GroupBox>
+    </Grid>
+</Window>

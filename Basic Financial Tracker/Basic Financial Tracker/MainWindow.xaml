@@ -1,0 +1,203 @@
+﻿<Window x:Name="MainWindow"
+        x:Class="Basic_Financial_Tracker.MainView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Basic_Financial_Tracker"
+        mc:Ignorable="d"
+        Title="Basic Financial Tracker" Height="500" Width="800" MinHeight="500" MinWidth="700" Icon="GoldenCoin.ico">
+    <TabControl>
+        <TabItem Header="Table" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="auto">
+            <Grid Margin="5,0,5,5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="27"/>
+                    <RowDefinition Height="200*"/>
+                    <RowDefinition Height="100*" MaxHeight="175"/>
+                </Grid.RowDefinitions>
+                <Grid x:Name="mainLabelGrid" Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" x:Name="informationLabel" Content="Information" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold"/>
+                    <Label Grid.Column="1" x:Name="dataGridLabel" Content="Transactions Table" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold"/>
+                </Grid>
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0" MaxHeight="500" VerticalAlignment="Top">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="25"/>
+                            <RowDefinition Height="25"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0" x:Name="currentBalanceLabel" Content="Current Balance:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                        <Label Grid.Row="1" x:Name="currentBalanceValue" Content="P 000000.00" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                        <GroupBox Grid.Row="2" x:Name="todayDetailsGroupBox" Header="Today's Details" Margin="0,5,5,0">
+                            <Grid x:Name="todayDetailsGrid" Margin="0,5,5,0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="25"/>
+                                    <RowDefinition Height="25"/>
+                                    <RowDefinition Height="25"/>
+                                    <RowDefinition Height="25"/>
+                                    <RowDefinition Height="25"/>
+                                    <RowDefinition Height="25"/>
+                                </Grid.RowDefinitions>
+                                <Label Grid.Row="0" x:Name="todayInFlowLabel" Content="Revenue:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                <Label Grid.Row="1" x:Name="todayInFlowValue" Content="P 000000.00" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                                <Label Grid.Row="2" x:Name="todayOutFlowLabel" Content="Expenses:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                <Label Grid.Row="3" x:Name="todayOutFlowValue" Content="P 000000.00" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                                <Label Grid.Row="4" x:Name="todayNetFlowLabel" Content="Net Flow:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                <Label Grid.Row="5" x:Name="todayNetFlowValue" Content="P 000000.00" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                            </Grid>
+                        </GroupBox>
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <DataGrid Grid.Row="1" x:Name="transactionDataGrid" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5" ItemsSource="{Binding Path = transactionDataGridBinding}" IsReadOnly="True" CanUserAddRows="False" AutoGenerateColumns="True" ColumnWidth="*">
+                            <DataGrid.Resources>
+                                <ContextMenu x:Name="transactionDataGridContextMenu" x:Key="transactionDataRowContextMenu">
+                                    <MenuItem Header="Edit" Click="launchEditPopupWindow"/>
+                                    <MenuItem Header="Delete" Click="launchDeletePrompt"/>
+                                    <MenuItem Header="View Edit History" Click="launchEditHistoryWindow"/>
+                                </ContextMenu>
+                            </DataGrid.Resources>
+                            <DataGrid.RowStyle>
+                                <Style TargetType="{x:Type DataGridRow}">
+                                    <Setter Property="ContextMenu" Value="{StaticResource transactionDataRowContextMenu}"/>
+                                </Style>
+                            </DataGrid.RowStyle>
+                        </DataGrid>
+                    </Grid>
+                </Grid>
+                <GroupBox Grid.Row="2" x:Name="transactionGroupBox" Header="Transaction Controls" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="95"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid x:Name="transactionButtonGrid" Grid.Column="0" VerticalAlignment="Center">
+                            <Button x:Name="addButton" Content="Add" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="addButton_Click"/>
+                            <Button x:Name="editButton" Content="Edit" HorizontalAlignment="Left" Margin="10,37,0,0" VerticalAlignment="Top" Width="75" Click="launchEditPopupWindow"/>
+                            <Button x:Name="deleteButton" Content="Delete" HorizontalAlignment="Left" Margin="10,64,0,0" VerticalAlignment="Top" Width="75" Click="launchDeletePrompt"/>
+                        </Grid>
+                        <Grid x:Name="transactionInfoGrid" Grid.Column="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="50"/>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
+                            <Grid x:Name="mainInfoGrid" Grid.Row="0" Margin="0,0,5,0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1.6*"/>
+                                    <ColumnDefinition Width="1.25*"/>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="1.25*"/>
+                                    <ColumnDefinition Width="1.3*"/>
+                                    <ColumnDefinition Width="1.8*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid x:Name="labelInfoGrid1" Grid.Column="0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Label Grid.Row="0" x:Name="transactionIDLabel" Content="Transaction ID:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                    <Label Grid.Row="1" x:Name="transactionTypeLabel" Content="Transaction Type:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                </Grid>
+                                <Grid x:Name="labelInfoGrid2" Grid.Column="2">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Label Grid.Row="0" x:Name="amountLabel" Content="Amount:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                    <Label Grid.Row="1" x:Name="categoryLabel" Content="Category:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                </Grid>
+                                <Grid x:Name="labelInfoGrid3" Grid.Column="4">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Label Grid.Row="0" x:Name="dateAddedLabel" Content="Date Added:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                    <Label Grid.Row="1" x:Name="dateAddedCheckBoxLabel" Content="Auto-Datestamp:" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                                </Grid>
+                                <Grid x:Name="subInfoGrid1" Grid.Column="1">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <TextBox Grid.Row="0" x:Name="transactionIDTextBox" HorizontalAlignment="Stretch" TextWrapping="Wrap" VerticalAlignment="Center" IsReadOnly="True" IsEnabled="False"/>
+                                    <TextBox Grid.Row="1" x:Name="transactionTypeTextBox" Text="Revenue" HorizontalAlignment="Stretch" TextWrapping="Wrap" VerticalAlignment="Center" IsReadOnly="True" IsEnabled="False"/>
+                                </Grid>
+                                <Grid x:Name="subInfoGrid2" Grid.Column="3">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <TextBox Grid.Row="0" x:Name="amountTextBox" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="0.00" VerticalAlignment="Center" PreviewTextInput="amountTextBox_PreviewTextInput" LostFocus="roundOffDecimal" KeyDown="amountTextBox_KeyDown"/>
+                                    <TextBox Grid.Row="1" x:Name="categoryTextBox" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="" VerticalAlignment="Center"/>
+                                </Grid>
+                                <Grid x:Name="subInfoGrid3" Grid.Column="5">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <DatePicker Grid.Row="0" x:Name="dateAddedDatePicker" HorizontalAlignment="Stretch" Text="September 31, 2015" VerticalAlignment="Center"/>
+                                    <CheckBox Grid.Row="1" x:Name="dateAddedCheckBox" HorizontalAlignment="Left" VerticalAlignment="Center" IsChecked="True" ToolTip="Automatically sets Date Added as today" Checked="dateAddedCheckBox_Checked" Unchecked="dateAddedCheckBox_Unchecked"/>
+                                </Grid>
+                            </Grid>
+                            <Grid x:Name="descriptionGrid" Grid.Row="1" Margin="0,5,0,0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="75"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0" x:Name="descriptionLabel" Content="Description:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                <Grid  Grid.Column="1" Margin="0,0,5,5">
+                                    <TextBox x:Name="descriptionTextBox" Text="Type a short description here." Foreground="Gray" HorizontalAlignment="Stretch" Margin="5,5,0,0" VerticalAlignment="Stretch" GotFocus="descriptionTextBox_GotFocus" LostFocus="descriptionTextBox_LostFocus"/>
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </GroupBox>
+            </Grid>
+        </TabItem>
+        <TabItem Header="Graphs" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="auto">
+            <Grid>
+
+            </Grid>
+        </TabItem>
+        <TabItem Header="Details" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="auto">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <GroupBox Grid.Row="0" x:Name="constantsGroupBox" Header="Constants">
+                    <Grid x:Name="constantsGrid">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0" x:Name="originalBalanceGrid">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" x:Name="originalBalance" Content="Original Balance: P 0.00" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                            <Button Grid.Column="1" x:Name="originalBalanceButton" Content="Edit" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Margin="5,0,5,0" Click="originalBalanceButton_Click"/>
+                        </Grid>
+                        <Grid Grid.Column="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                        </Grid>
+                    </Grid>
+                </GroupBox>
+            </Grid>
+        </TabItem>
+    </TabControl>
+</Window>

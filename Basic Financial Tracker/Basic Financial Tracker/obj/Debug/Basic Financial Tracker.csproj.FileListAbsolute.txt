@@ -1,0 +1,37 @@
+G:\Programs Projects\Basic-Financial-Tracker\Basic Financial Tracker\Basic Financial Tracker\bin\Debug\Basic Financial Tracker.exe.config
+G:\Programs Projects\Basic-Financial-Tracker\Basic Financial Tracker\Basic Financial Tracker\obj\Debug\Basic Financial Tracker.csprojResolveAssemblyReference.cache
+G:\Programs Projects\Basic-Financial-Tracker\Basic Financial Tracker\Basic Financial Tracker\obj\Debug\EditWindow.g.cs
+G:\Programs Projects\Basic-Financial-Tracker\Basic Financial Tracker\Basic Financial Tracker\obj\Debug\HistoryWindow.g.cs
+G:\Programs Projects\Basic-Financial-Tracker\Basic Financial Tracker\Basic Financial Tracker\obj\Debug\MainWindow.g.cs
+G:\Programs Projects\Basic-Financial-Tracker\Basic Financial Tracker\Basic Financial Tracker\obj\Debug\Popup.g.cs
+G:\Programs Projects\Basic-Financial-Tracker\Basic Financial Tracker\Basic Financial Tracker\obj\Debug\App.g.cs
+G:\Programs Projects\Basic-Financial-Tracker\Basic Financial Tracker\Basic Financial Tracker\obj\Debug\Basic Financial Tracker_MarkupCompile.cache
+G:\Programs Projects\Basic-Financial-Tracker\Basic Financial Tracker\Basic Financial Tracker\obj\Debug\Basic Financial Tracker_MarkupCompile.lref
+G:\Programs Projects\Basic-Financial-Tracker\Basic Financial Tracker\Basic Financial Tracker\bin\Debug\Basic Financial Tracker.exe
+G:\Programs Projects\Basic-Financial-Tracker\Basic Financial Tracker\Basic Financial Tracker\bin\Debug\Basic Financial Tracker.pdb
+G:\Programs Projects\Basic-Financial-Tracker\Basic Financial Tracker\Basic Financial Tracker\bin\Debug\System.Data.SQLite.dll
+G:\Programs Projects\Basic-Financial-Tracker\Basic Financial Tracker\Basic Financial Tracker\bin\Debug\System.Data.SQLite.pdb
+G:\Programs Projects\Basic-Financial-Tracker\Basic Financial Tracker\Basic Financial Tracker\obj\Debug\EditWindow.baml
+G:\Programs Projects\Basic-Financial-Tracker\Basic Financial Tracker\Basic Financial Tracker\obj\Debug\HistoryWindow.baml
+G:\Programs Projects\Basic-Financial-Tracker\Basic Financial Tracker\Basic Financial Tracker\obj\Debug\MainWindow.baml
+G:\Programs Projects\Basic-Financial-Tracker\Basic Financial Tracker\Basic Financial Tracker\obj\Debug\Popup.baml
+G:\Programs Projects\Basic-Financial-Tracker\Basic Financial Tracker\Basic Financial Tracker\obj\Debug\Basic Financial Tracker.g.resources
+G:\Programs Projects\Basic-Financial-Tracker\Basic Financial Tracker\Basic Financial Tracker\obj\Debug\Basic_Financial_Tracker.Properties.Resources.resources
+G:\Programs Projects\Basic-Financial-Tracker\Basic Financial Tracker\Basic Financial Tracker\obj\Debug\Basic Financial Tracker.csproj.GenerateResource.Cache
+G:\Programs Projects\Basic-Financial-Tracker\Basic Financial Tracker\Basic Financial Tracker\obj\Debug\Basic Financial Tracker.exe
+G:\Programs Projects\Basic-Financial-Tracker\Basic Financial Tracker\Basic Financial Tracker\obj\Debug\Basic Financial Tracker.pdb
+G:\Programs Projects\Basic-Financial-Tracker\Basic Financial Tracker\Basic Financial Tracker\obj\Debug\Basic Financial Tracker_Content.g.cs
+G:\Programs Projects\Basic-Financial-Tracker\Basic Financial Tracker\Basic Financial Tracker\bin\Debug\System.Data.SQLite.Linq.dll
+G:\Programs Projects\Basic-Financial-Tracker\Basic Financial Tracker\Basic Financial Tracker\bin\Debug\System.Data.SQLite.Linq.pdb
+G:\Programs Projects\Basic-Financial-Tracker\Basic Financial Tracker\Basic Financial Tracker\bin\Debug\EntityFramework.dll
+G:\Programs Projects\Basic-Financial-Tracker\Basic Financial Tracker\Basic Financial Tracker\bin\Debug\SQLite.Designer.dll
+G:\Programs Projects\Basic-Financial-Tracker\Basic Financial Tracker\Basic Financial Tracker\bin\Debug\System.Data.SQLite.EF6.dll
+G:\Programs Projects\Basic-Financial-Tracker\Basic Financial Tracker\Basic Financial Tracker\bin\Debug\EnvDTE.dll
+G:\Programs Projects\Basic-Financial-Tracker\Basic Financial Tracker\Basic Financial Tracker\bin\Debug\Microsoft.VisualStudio.ComponentModelHost.dll
+G:\Programs Projects\Basic-Financial-Tracker\Basic Financial Tracker\Basic Financial Tracker\bin\Debug\Microsoft.VisualStudio.VSHelp.dll
+G:\Programs Projects\Basic-Financial-Tracker\Basic Financial Tracker\Basic Financial Tracker\bin\Debug\stdole.dll
+G:\Programs Projects\Basic-Financial-Tracker\Basic Financial Tracker\Basic Financial Tracker\bin\Debug\Microsoft.VisualStudio.GraphModel.dll
+G:\Programs Projects\Basic-Financial-Tracker\Basic Financial Tracker\Basic Financial Tracker\bin\Debug\Microsoft.MSXML.dll
+G:\Programs Projects\Basic-Financial-Tracker\Basic Financial Tracker\Basic Financial Tracker\bin\Debug\SQLite.Designer.pdb
+G:\Programs Projects\Basic-Financial-Tracker\Basic Financial Tracker\Basic Financial Tracker\bin\Debug\System.Data.SQLite.EF6.pdb
+G:\Programs Projects\Basic-Financial-Tracker\Basic Financial Tracker\Basic Financial Tracker\bin\Debug\EnvDTE.xml
